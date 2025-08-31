@@ -1,4 +1,4 @@
-package Main.Java.factory;
+package Main.factory;
 
 public class LogisticalLibro {
 }
