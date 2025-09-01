@@ -1,4 +1,6 @@
 package Main.Java.abstractfactory;
 
-public class MetodoEnvio {
+public interface MetodoEnvio {
+    void enviar();
 }
+
