@@ -1,4 +1,8 @@
 package Main.Java.abstractfactory;
 
-public class EnvioExpress {
+public class EnvioExpress implements MetodoEnvio {
+    @Override
+    public void enviar(){
+        System.out.println("Envío express: llegará en 24 horas.");
+    }
 }
