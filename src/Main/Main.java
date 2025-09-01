@@ -1,11 +1,13 @@
 package Main;
 
+import Main.Java.abstractfactory.*;
 import Main.Java.singleton.DataBase;
 import Main.Java.factory.Libro;
 import Main.Java.factory.LogisticalLibro;
 
 public class Main {
     public static void main(String[] args) {
+
         // Obtenemos la "instancia única" del Singleton
         DataBase db1 = DataBase.getInstance();
         DataBase db2 = DataBase.getInstance();
@@ -18,17 +20,44 @@ public class Main {
         //db1.agregarLibro(new Libro("El Principito", "Antoine de Saint-Exupéry"));
         //db2.agregarLibro(new Libro("Ficciones", "Jorge Luis Borges"));
 
+        // ==============================
+        // PARTE 2 - Factory Method + Singleton
+        // ==============================
+        System.out.println("\n=== PARTE 2: Factory Method + Singleton ===");
+        
         // Crear libros usando el Factory Method
         Libro lib1 = LogisticalLibro.crearLibro("Digital", "El Principito", "Antoine de Saint-Exupéry");
         Libro lib2 = LogisticalLibro.crearLibro("Fisico", "Ficciones", "Jorge Luis Borges");
-        
+
         // Agregar los libros a la base de datos
         db1.agregarLibro(lib1);
         db2.agregarLibro(lib2);
 
-       
+
         // Listamos los libros (da lo mismo con db1 o db2)
         System.out.println("Libros en la BD:");
         db1.getLibros().forEach(System.out::println);
+        // ==============================
+        // PARTE 3 - Abstract Factory
+        // ==============================
+        AbstractFactory adminFactory = new AdminFactory();
+        AbstractFactory usuarioFactory = new UsuarioFactory();
+
+        // Crear objetos de Admin
+        InterfazUI adminUI = adminFactory.crearUI();
+        MetodoEnvio adminEnvio = adminFactory.crearEnvio();
+
+        // Crear objetos de Usuario
+        InterfazUI usuarioUI = usuarioFactory.crearUI();
+        MetodoEnvio usuarioEnvio = usuarioFactory.crearEnvio();
+
+        // Mostrar comportamientos
+        System.out.println("\n=== PARTE 3: ADMIN ===");
+        adminUI.mostrarInterfaz();
+        adminEnvio.enviar();
+
+        System.out.println("\n=== PARTE 3: USUARIO ===");
+        usuarioUI.mostrarInterfaz();
+        usuarioEnvio.enviar();
     }
 }
