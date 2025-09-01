@@ -1,7 +1,7 @@
 package Main;
 
-import Main.singleton.DataBase;
-import Main.factory.Libro;
+import Main.Java.singleton.DataBase;
+import Main.Java.factory.Libro;
 
 public class Main {
     public static void main(String[] args) {

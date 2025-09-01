@@ -1,4 +1,4 @@
-package Main.factory;
+package Main.Java.factory;
 
 public class LibroDigital {
 }
