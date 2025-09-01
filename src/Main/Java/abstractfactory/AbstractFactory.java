@@ -1,4 +1,6 @@
 package Main.Java.abstractfactory;
 
-public class AbstractFactory {
+public interface AbstractFactory {
+    InterfazUI crearUI();
+    MetodoEnvio crearEnvio();
 }
