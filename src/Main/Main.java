@@ -5,7 +5,9 @@ import Main.Java.singleton.DataBase;
 import Main.Java.factory.Libro;
 import Main.Java.factory.LogisticalLibro;
 import Main.Java.builder.Usuario;
-
+import java.time.LocalDate;
+import Main.Java.prototype.Prestamo;
+import Main.Java.factory.LibroFisico;
 
 public class Main {
     public static void main(String[] args) {
@@ -83,6 +85,32 @@ public class Main {
 
         System.out.println("Usuario 1: " + usuario1);
         System.out.println("Usuario 2: " + usuario2);
+
+        // ==============================
+        // PARTE 5 - Prototype
+        // ==============================
+        System.out.println("\n=== PARTE 5: Prototype ===");
+
+        // Crear prototipo base
+                Prestamo prestamoPrototipo = new Prestamo(
+                        new LibroFisico("El Principito", "Antoine de Saint-Exupéry"),
+                        usuario1,  // Usuario creado antes con Builder
+                        LocalDate.now(),
+                        LocalDate.now().plusDays(14)
+                );
+
+        // Clonar y modificar
+                Prestamo prestamo1 = prestamoPrototipo.deepClone();
+                prestamo1.setUsuario(usuario2); // cambia el usuario
+
+                Prestamo prestamo2 = prestamoPrototipo.deepClone();
+                prestamo2.setFechaFin(LocalDate.now().plusDays(30));
+
+        // Verificar independencia
+                System.out.println("Préstamo original usuario: " + prestamoPrototipo.getUsuario().getNombre());
+                System.out.println("Préstamo 1 usuario: " + prestamo1.getUsuario().getNombre());
+                System.out.println("Préstamo 2 fecha fin: " + prestamo2.getFechaFin());
+
 
     }
 }
