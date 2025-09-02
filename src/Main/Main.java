@@ -1,6 +1,7 @@
 package Main;
 
 import Main.Java.abstractfactory.*;
+import Main.Java.prototype.Prestamo;
 import Main.Java.singleton.DataBase;
 import Main.Java.factory.Libro;
 import Main.Java.factory.LogisticalLibro;
@@ -67,22 +68,50 @@ public class Main {
         System.out.println("\n=== PARTE 4: Builder ===");
 
         Usuario usuario1 = Usuario.builder()
-        .nombre("Lucía")
-        .apellido("Gómez")
-        .email("lucia.gomez@example.com")
-        .tipoUsuario("Admin")
-        .edad(30)
-        .build();
+                .nombre("Lucía")
+                .apellido("Gómez")
+                .email("lucia.gomez@example.com")
+                .tipoUsuario("Admin")
+                .edad(30)
+                .build();
 
         Usuario usuario2 = Usuario.builder()
-        .nombre("Tomás")
-        .apellido("Pérez")
-        .email("tomas.perez@example.com")
-        .tipoUsuario("Cliente")
-        .build(); // Edad opcional
+                .nombre("Tomás")
+                .apellido("Pérez")
+                .email("tomas.perez@example.com")
+                .tipoUsuario("Cliente")
+                .build(); // Edad opcional
 
         System.out.println("Usuario 1: " + usuario1);
         System.out.println("Usuario 2: " + usuario2);
 
-    }
+
+          // ==============================
+         // PARTE 5 - Prototype
+        // ==============================
+       System.out.println("\n=== PARTE 5: Prototype ===");
+
+      // Crear un préstamo original
+        Prestamo prestamoOriginal = new Prestamo(
+            lib1,                     // usamos el libro digital creado antes
+            usuario1,                 // usamos el usuario creado con Builder
+            java.time.LocalDate.now(),
+            java.time.LocalDate.now().plusDays(7)
+    );
+
+      // Clonar el préstamo
+        Prestamo prestamoClon1 = prestamoOriginal.clone();
+        Prestamo prestamoClon2 = prestamoOriginal.clone();
+
+      // Modificar los clones
+        prestamoClon1.setUsuario(usuario2); // prestamo con otro usuario
+        prestamoClon2.setFechaFin(java.time.LocalDate.now().plusDays(14));
+
+      // Mostrar resultados
+        System.out.println("Original: "+prestamoOriginal);
+        System.out.println("Clon 1:   "+prestamoClon1);
+        System.out.println("Clon 2:   "+prestamoClon2);
+
 }
+}
+

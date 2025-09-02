@@ -2,13 +2,18 @@ package Main.Java.prototype;
 
 import Main.Java.builder.Usuario;
 import Main.Java.factory.Libro;
-import lombok.Builder;
+import lombok.AllArgsConstructor;
+//import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 
 @Data
-@Builder
-public class Prestamo implements Cloneable{
+@AllArgsConstructor   // constructor con todos los atributos
+@NoArgsConstructor    // constructor vacío
+//@Builder
+public class Prestamo implements Cloneable {
     private Libro libros;
     private Usuario usuario;
     private LocalDate fechaInicio;
