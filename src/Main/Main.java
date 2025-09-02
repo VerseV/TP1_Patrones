@@ -4,6 +4,8 @@ import Main.Java.abstractfactory.*;
 import Main.Java.singleton.DataBase;
 import Main.Java.factory.Libro;
 import Main.Java.factory.LogisticalLibro;
+import Main.Java.builder.Usuario;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -64,7 +66,7 @@ public class Main {
         // ==============================
         System.out.println("\n=== PARTE 4: Builder ===");
 
-        Main.Java.builder.Usuario usuario1 = Main.Java.builder.Usuario.builder()
+        Usuario usuario1 = Usuario.builder()
         .nombre("Lucía")
         .apellido("Gómez")
         .email("lucia.gomez@example.com")
@@ -72,7 +74,7 @@ public class Main {
         .edad(30)
         .build();
 
-        Main.Java.builder.Usuario usuario2 = Main.Java.builder.Usuario.builder()
+        Usuario usuario2 = Usuario.builder()
         .nombre("Tomás")
         .apellido("Pérez")
         .email("tomas.perez@example.com")
