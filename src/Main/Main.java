@@ -59,5 +59,28 @@ public class Main {
         System.out.println("\n=== PARTE 3: USUARIO ===");
         usuarioUI.mostrarInterfaz();
         usuarioEnvio.enviar();
+        // ==============================
+        // PARTE 4 - Builder
+        // ==============================
+        System.out.println("\n=== PARTE 4: Builder ===");
+
+        Main.Java.builder.Usuario usuario1 = Main.Java.builder.Usuario.builder()
+        .nombre("Lucía")
+        .apellido("Gómez")
+        .email("lucia.gomez@example.com")
+        .tipoUsuario("Admin")
+        .edad(30)
+        .build();
+
+        Main.Java.builder.Usuario usuario2 = Main.Java.builder.Usuario.builder()
+        .nombre("Tomás")
+        .apellido("Pérez")
+        .email("tomas.perez@example.com")
+        .tipoUsuario("Cliente")
+        .build(); // Edad opcional
+
+        System.out.println("Usuario 1: " + usuario1);
+        System.out.println("Usuario 2: " + usuario2);
+
     }
 }
