@@ -3,6 +3,11 @@ package Main.Java.singleton;
 import java.util.ArrayList;
 import java.util.List;
 import Main.Java.factory.Libro;
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+@ToString
 
 public class DataBase {
     private static DataBase instance;
@@ -21,9 +26,5 @@ public class DataBase {
 
     public void agregarLibro(Libro libro) {
         libros.add(libro);
-    }
-
-    public List<Libro> getLibros() {
-        return libros;
     }
 }

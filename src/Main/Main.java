@@ -1,12 +1,13 @@
 package Main;
 
 import Main.Java.abstractfactory.*;
-import Main.Java.prototype.Prestamo;
 import Main.Java.singleton.DataBase;
 import Main.Java.factory.Libro;
 import Main.Java.factory.LogisticalLibro;
 import Main.Java.builder.Usuario;
-
+import java.time.LocalDate;
+import Main.Java.prototype.Prestamo;
+import Main.Java.factory.LibroFisico;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,8 +30,8 @@ public class Main {
         System.out.println("\n=== PARTE 2: Factory Method + Singleton ===");
 
         // Crear libros usando el Factory Method
-        Libro lib1 = LogisticalLibro.crearLibro("Digital", "El Principito", "Antoine de Saint-Exupéry");
-        Libro lib2 = LogisticalLibro.crearLibro("Fisico", "Ficciones", "Jorge Luis Borges");
+        Libro lib1 = LogisticalLibro.crearLibro("Digital", "Effective Java", "Joshua Bloch");
+        Libro lib2 = LogisticalLibro.crearLibro("Fisico", "Structured Computer Organization", "Andrew S. Tanenbaum");
 
         // Agregar los libros a la base de datos
         db1.agregarLibro(lib1);
@@ -68,50 +69,23 @@ public class Main {
         System.out.println("\n=== PARTE 4: Builder ===");
 
         Usuario usuario1 = Usuario.builder()
-                .nombre("Lucía")
-                .apellido("Gómez")
-                .email("lucia.gomez@example.com")
-                .tipoUsuario("Admin")
-                .edad(30)
-                .build();
+        .nombre("Mateo")
+        .apellido("Espinola")
+        .email("agustinschneiter19@gmail.com")
+        .tipoUsuario("Admin")
+        .edad(22)
+        .build();
 
         Usuario usuario2 = Usuario.builder()
-                .nombre("Tomás")
-                .apellido("Pérez")
-                .email("tomas.perez@example.com")
-                .tipoUsuario("Cliente")
-                .build(); // Edad opcional
+        .nombre("Victoria")
+        .apellido("Acosta")
+        .email("vico.ac2507@gmail.com")
+        .tipoUsuario("Cliente")
+        .build(); // Edad opcional
 
         System.out.println("Usuario 1: " + usuario1);
         System.out.println("Usuario 2: " + usuario2);
 
 
-          // ==============================
-         // PARTE 5 - Prototype
-        // ==============================
-       System.out.println("\n=== PARTE 5: Prototype ===");
-
-      // Crear un préstamo original
-        Prestamo prestamoOriginal = new Prestamo(
-            lib1,                     // usamos el libro digital creado antes
-            usuario1,                 // usamos el usuario creado con Builder
-            java.time.LocalDate.now(),
-            java.time.LocalDate.now().plusDays(7)
-    );
-
-      // Clonar el préstamo
-        Prestamo prestamoClon1 = prestamoOriginal.clone();
-        Prestamo prestamoClon2 = prestamoOriginal.clone();
-
-      // Modificar los clones
-        prestamoClon1.setUsuario(usuario2); // prestamo con otro usuario
-        prestamoClon2.setFechaFin(java.time.LocalDate.now().plusDays(14));
-
-      // Mostrar resultados
-        System.out.println("Original: "+prestamoOriginal);
-        System.out.println("Clon 1:   "+prestamoClon1);
-        System.out.println("Clon 2:   "+prestamoClon2);
-
+    }
 }
-}
-
