@@ -28,8 +28,8 @@ public class Main {
         System.out.println("\n=== PARTE 2: Factory Method + Singleton ===");
 
         // Crear libros usando el Factory Method
-        Libro lib1 = LogisticalLibro.crearLibro("Digital", "El Principito", "Antoine de Saint-Exupéry");
-        Libro lib2 = LogisticalLibro.crearLibro("Fisico", "Ficciones", "Jorge Luis Borges");
+        Libro lib1 = LogisticalLibro.crearLibro("Digital", "Effective Java", "Joshua Bloch");
+        Libro lib2 = LogisticalLibro.crearLibro("Fisico", "Structured Computer Organization", "Andrew S. Tanenbaum");
 
         // Agregar los libros a la base de datos
         db1.agregarLibro(lib1);
@@ -67,17 +67,17 @@ public class Main {
         System.out.println("\n=== PARTE 4: Builder ===");
 
         Usuario usuario1 = Usuario.builder()
-        .nombre("Lucía")
-        .apellido("Gómez")
-        .email("lucia.gomez@example.com")
+        .nombre("Mateo")
+        .apellido("Espinola")
+        .email("agustinschneiter19@gmail.com")
         .tipoUsuario("Admin")
-        .edad(30)
+        .edad(22)
         .build();
 
         Usuario usuario2 = Usuario.builder()
-        .nombre("Tomás")
-        .apellido("Pérez")
-        .email("tomas.perez@example.com")
+        .nombre("Victoria")
+        .apellido("Acosta")
+        .email("vico.ac2507@gmail.com")
         .tipoUsuario("Cliente")
         .build(); // Edad opcional
 
