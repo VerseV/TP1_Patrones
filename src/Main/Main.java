@@ -24,7 +24,7 @@ public class Main {
         // PARTE 2 - Factory Method + Singleton
         // ==============================
         System.out.println("\n=== PARTE 2: Factory Method + Singleton ===");
-        
+
         // Crear libros usando el Factory Method
         Libro lib1 = LogisticalLibro.crearLibro("Digital", "El Principito", "Antoine de Saint-Exupéry");
         Libro lib2 = LogisticalLibro.crearLibro("Fisico", "Ficciones", "Jorge Luis Borges");
