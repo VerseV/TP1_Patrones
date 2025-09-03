@@ -1,9 +1,10 @@
 package Main.Java.abstractfactory;
 
-import lombok.ToString;
+import lombok.AllArgsConstructor;
 
-@ToString
+@AllArgsConstructor
 public class EnvioExpress implements MetodoEnvio {
+
     @Override
     public void enviar(){
         System.out.println("Envío express: llegará en 24 horas.");
