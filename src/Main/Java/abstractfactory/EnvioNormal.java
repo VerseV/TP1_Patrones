@@ -1,5 +1,8 @@
 package Main.Java.abstractfactory;
 
+import lombok.ToString;
+
+@ToString
 public class EnvioNormal implements MetodoEnvio{
     @Override
     public void enviar(){

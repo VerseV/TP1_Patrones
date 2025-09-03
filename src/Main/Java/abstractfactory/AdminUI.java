@@ -1,5 +1,8 @@
 package Main.Java.abstractfactory;
 
+import lombok.ToString;
+
+@ToString
 public class AdminUI  implements InterfazUI{
     @Override
     public void mostrarInterfaz() {
