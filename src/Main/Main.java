@@ -12,6 +12,10 @@ import Main.Java.prototype.Prestamo;
 public class Main {
     public static void main(String[] args) {
 
+        // ==============================
+        // PARTE 1- Singleton
+        // ==============================
+        System.out.println("\n=== PARTE 1: Singleton ===");
         // Obtenemos la "instancia única" del Singleton
         DataBase db1 = DataBase.getInstance();
         DataBase db2 = DataBase.getInstance();
